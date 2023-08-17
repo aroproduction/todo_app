@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://image.flaticon.com/icons/png/512/2490/2490402.png">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../static/index.css">
+    <title>Todo-App</title>
+</head>
+<body>
+    <h1>Todo_App</h1>
+    <form method="POST" action="/">
+        <div class="todo_details_container">
+            <h2>Add Todo</h2>
+            <section class="todo_details">
+                <h3>Title</h3>
+                <input id="todo_title" type="text" name="title" required>
+            </section>
+            <section class="todo_details">
+                <h3>Description</h3>
+                <input id="todo_desc" type="text" name="description" required>
+            </section>
+            <button 
+                style="font-size: 15px;padding: 8px;border-radius: 13px;">
+                Add
+            </button>
+        </div>
+    </form>
+    <div class="todos_container">
+        <h2>Your Todos</h2>
+        {% for j in data %}
+            <div class="todo" data-aos="flip-left">
+                <h2>{{ j.0 }}</h2>
+                <h3>* {{ j.1 }}</h3>
+            </div>
+        {% endfor %}
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>  
+</body>
+</html>
